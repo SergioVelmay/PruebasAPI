@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RotuladoresDomain.Services;
-using RotuladoresDomain.Models;
-using AutoMapper;
 using RotuladoresDTO;
 
 namespace EjemploAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RotuladoresController : ControllerBase
     {
         private readonly IRotuladorService _rotuladorService;

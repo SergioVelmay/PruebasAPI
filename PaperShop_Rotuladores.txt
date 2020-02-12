@@ -46,3 +46,29 @@ db.Rotuladores.insertMany(
         }
     ]
 )
+
+db.Rotuladores.insertMany(
+    [
+        {
+            "Tipo":"Usuario",
+            "Edad":35,
+            "Altura":1.85,
+            "Nombre":"Sergio",
+            "Cliente":true
+        },
+        {
+            "Tipo":"Usuario",
+            "Edad":27",
+            "Altura":1.72",
+            "Nombre":"Peter",
+            "Cliente":false
+        },
+        {
+            "Tipo":"Usuario",
+            "Edad":48",
+            "Altura":1.55",
+            "Nombre":"Alba",
+            "Cliente":false
+        }
+    ]
+)

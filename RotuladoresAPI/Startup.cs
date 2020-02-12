@@ -32,19 +32,30 @@ namespace RotuladoresAPI
             services.AddSingleton<IMongoDatabaseSettings>(serviceProvider =>
                 serviceProvider.GetRequiredService<IOptions<MongoDatabaseSettings>>().Value);
 
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new RotuladorMapper());
-            });
+            var mappingConfig = new MapperConfiguration(mapperConfiguration =>
+                mapperConfiguration.AddProfile(new RotuladorMapper()));
 
             IMapper mapper = mappingConfig.CreateMapper();
+
             services.AddSingleton(mapper);
 
-            services.AddSingleton<IRotuladorContext, RotuladorContext>();
-            services.AddSingleton<IRotuladorRepository, RotuladorRepository>();
-            services.AddSingleton<IRotuladorService, RotuladorService>();
+            services.AddScoped<IRotuladorContext, RotuladorContext>();
+
+            services.AddScoped<IRotuladorRepository, RotuladorRepository>();
+
+            services.AddScoped<IRotuladorService, RotuladorService>();
 
             services.AddControllers();
+
+            services.AddAuthentication("Bearer")
+            .AddJwtBearer("Bearer", options =>
+            {
+                options.Authority = "http://localhost:5000";
+
+                options.RequireHttpsMetadata = false;
+
+                options.Audience = "rotuladores";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +69,8 @@ namespace RotuladoresAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RotuladoresDTO\RotuladoresDTO.csproj" />
+    <ProjectReference Include="..\RotuladoresInfrastructure\RotuladoresInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>

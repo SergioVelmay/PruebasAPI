@@ -8,7 +8,6 @@ using AutoMapper;
 using RotuladoresDomain.Mappers;
 using RotuladoresDomain.Repositories;
 using RotuladoresDomain.Services;
-using RotuladoresInfrastructure.Repositories;
 using RotuladoresInfrastructure.Context;
 using RotuladoresInfrastructure.Mongo;
 
@@ -40,9 +39,11 @@ namespace RotuladoresAPI
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddSingleton<IRotuladorContext, RotuladorContext>();
-            services.AddSingleton<IRotuladorRepository, RotuladorRepository>();
-            services.AddSingleton<IRotuladorService, RotuladorService>();
+            services.AddScoped<IRotuladorContext, RotuladorContext>();
+
+            services.AddScoped<IRotuladorRepository, RotuladorRepository>();
+
+            services.AddScoped<IRotuladorService, RotuladorService>();
 
             services.AddControllers();
         }

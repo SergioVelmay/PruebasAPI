@@ -1,13 +1,11 @@
 ﻿using MongoDB.Driver;
-using RotuladoresDomain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using RotuladoresInfrastructure.Collections;
+
 
 namespace RotuladoresInfrastructure.Context
 {
     public interface IRotuladorContext
     {
-        IMongoCollection<Rotulador> GetCollection();
+        IMongoCollection<RotuladorCollection> GetCollection();
     }
 }

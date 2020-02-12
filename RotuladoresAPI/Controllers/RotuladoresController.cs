@@ -43,39 +43,39 @@ namespace EjemploAPI.Controllers
         [HttpPost]
         public ActionResult<RotuladorDTO> Create(RotuladorDTO rotulador)
         {
-            _rotuladorService.Create(rotulador);
+            RotuladorDTO rotuladorDTO = _rotuladorService.Create(rotulador);
 
-            return CreatedAtRoute("ReadRotulador", new { id = rotulador.Id.ToString() }, rotulador);
+            return CreatedAtRoute("ReadRotulador", new { id = rotuladorDTO.Id.ToString() }, rotuladorDTO);
         }
 
         // PUT: api/Rotuladores/5
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, RotuladorDTO rotuladorIn)
+        public IActionResult Update(string id, RotuladorDTO rotulador)
         {
-            var rotulador = _rotuladorService.Get(id);
+            RotuladorDTO rotuladorDTO = _rotuladorService.Get(id);
 
-            if (rotulador == null)
+            if (rotuladorDTO == null)
             {
                 return NotFound();
             }
 
-            _rotuladorService.Update(id, rotuladorIn);
+            _rotuladorService.Update(id, rotulador);
 
             return NoContent();
         }
 
         // DELETE: api/Rotuladores/5
         [HttpDelete("{id:length(24)}")]
-        public ActionResult<RotuladorDTO> DeleteRotulador(string id)
+        public ActionResult DeleteRotulador(string id)
         {
-            var rotulador = _rotuladorService.Get(id);
+            RotuladorDTO rotuladorDTO = _rotuladorService.Get(id);
 
-            if (rotulador == null)
+            if (rotuladorDTO == null)
             {
                 return NotFound();
             }
 
-            _rotuladorService.Remove(rotulador);
+            _rotuladorService.Remove(rotuladorDTO);
 
             return NoContent();
         }

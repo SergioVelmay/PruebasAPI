@@ -2,13 +2,14 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace IdentityClient
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             var client = new HttpClient();
 
@@ -18,6 +19,7 @@ namespace IdentityClient
             if (discovery.IsError)
             {
                 Console.WriteLine(discovery.Error);
+
                 return;
             }
 
@@ -27,13 +29,16 @@ namespace IdentityClient
                 Address = discovery.TokenEndpoint,
 
                 ClientId = "sergio",
-                ClientSecret = "secret",
+
+                ClientSecret = "prueba_123",
+
                 Scope = "rotuladores"
             });
 
             if (tokenResponse.IsError)
             {
                 Console.WriteLine(tokenResponse.Error);
+
                 return;
             }
 
@@ -44,7 +49,7 @@ namespace IdentityClient
             var apiClient = new HttpClient();
 
             Console.WriteLine();
-            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||| IDENTITY");
+            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||| IDENTITY CLAIM");
             Console.WriteLine();
 
             apiClient.SetBearerToken(tokenResponse.AccessToken);
@@ -58,11 +63,12 @@ namespace IdentityClient
             else
             {
                 var content = await responseIdentity.Content.ReadAsStringAsync();
+
                 Console.WriteLine(JArray.Parse(content));
             }
 
             Console.WriteLine();
-            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||| ROTULADORES");
+            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||| ROTULADORES GET");
             Console.WriteLine();
 
             var responseRotuladores = await apiClient.GetAsync("https://localhost:44309/api/rotuladores");
@@ -74,7 +80,27 @@ namespace IdentityClient
             else
             {
                 var content = await responseRotuladores.Content.ReadAsStringAsync();
+
                 Console.WriteLine(JArray.Parse(content));
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||| ROTULADORES POST");
+            Console.WriteLine();
+
+            HttpContent bodyContent = new StringContent("{\"marca\": \"Carioca\", \"modelo\": \"1995\"}", Encoding.UTF8, "application/json");
+
+            var responseRotuladorPost = await apiClient.PostAsync("https://localhost:44309/api/rotuladores", bodyContent);
+
+            if (!responseRotuladorPost.IsSuccessStatusCode)
+            {
+                Console.WriteLine(responseRotuladorPost.StatusCode);
+            }
+            else
+            {
+                var content = await responseRotuladorPost.Content.ReadAsStringAsync();
+
+                Console.WriteLine(JObject.Parse(content));
             }
         }
     }

@@ -43,9 +43,9 @@ namespace EjemploAPI.Controllers
         [HttpPost]
         public ActionResult<RotuladorDTO> Create(RotuladorDTO rotulador)
         {
-            _rotuladorService.Create(rotulador);
+            RotuladorDTO rotuladorDTO = _rotuladorService.Create(rotulador);
 
-            return CreatedAtRoute("ReadRotulador", new { id = rotulador.Id.ToString() }, rotulador);
+            return CreatedAtRoute("ReadRotulador", new { id = rotuladorDTO.Id.ToString() }, rotuladorDTO);
         }
 
         // PUT: api/Rotuladores/5

@@ -5,13 +5,21 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploAPI", "EjemploAPI\EjemploAPI.csproj", "{30EFA7D1-2F55-4EDB-AEA5-98B4F21074E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotuladoresAPI", "RotuladoresAPI\RotuladoresAPI.csproj", "{4BADD1F9-7131-4764-9549-F877F68E3F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotuladoresAPI", "RotuladoresAPI\RotuladoresAPI.csproj", "{4BADD1F9-7131-4764-9549-F877F68E3F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotuladoresDomain", "RotuladoresDomain\RotuladoresDomain.csproj", "{7C1B26E7-6D8F-43A0-A8F9-C6DBB2E9F167}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotuladoresDomain", "RotuladoresDomain\RotuladoresDomain.csproj", "{7C1B26E7-6D8F-43A0-A8F9-C6DBB2E9F167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotuladoresInfrastructure", "RotuladoresInfrastructure\RotuladoresInfrastructure.csproj", "{D3233797-0F9E-4E4B-8404-7580962C4D28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotuladoresInfrastructure", "RotuladoresInfrastructure\RotuladoresInfrastructure.csproj", "{D3233797-0F9E-4E4B-8404-7580962C4D28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotuladoresDTO", "RotuladoresDTO\RotuladoresDTO.csproj", "{1C3154AB-AA77-4C21-AD42-9789C217E4B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotuladoresDTO", "RotuladoresDTO\RotuladoresDTO.csproj", "{1C3154AB-AA77-4C21-AD42-9789C217E4B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tutoriales", "Tutoriales", "{99FD6015-0C6B-4997-9C0B-1974FD96AEB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arquitectura", "Arquitectura", "{B7FFF89E-AC6B-44CB-BDFE-5A0CA8B4AF1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{6D55EA9F-7C3D-44B0-876C-866F432B5CA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{7DD5A7AE-18BB-40D3-8799-91003F53CA85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +47,21 @@ Global
 		{1C3154AB-AA77-4C21-AD42-9789C217E4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C3154AB-AA77-4C21-AD42-9789C217E4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C3154AB-AA77-4C21-AD42-9789C217E4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D55EA9F-7C3D-44B0-876C-866F432B5CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D55EA9F-7C3D-44B0-876C-866F432B5CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D55EA9F-7C3D-44B0-876C-866F432B5CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D55EA9F-7C3D-44B0-876C-866F432B5CA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30EFA7D1-2F55-4EDB-AEA5-98B4F21074E3} = {99FD6015-0C6B-4997-9C0B-1974FD96AEB2}
+		{4BADD1F9-7131-4764-9549-F877F68E3F37} = {B7FFF89E-AC6B-44CB-BDFE-5A0CA8B4AF1C}
+		{7C1B26E7-6D8F-43A0-A8F9-C6DBB2E9F167} = {B7FFF89E-AC6B-44CB-BDFE-5A0CA8B4AF1C}
+		{D3233797-0F9E-4E4B-8404-7580962C4D28} = {B7FFF89E-AC6B-44CB-BDFE-5A0CA8B4AF1C}
+		{1C3154AB-AA77-4C21-AD42-9789C217E4B8} = {B7FFF89E-AC6B-44CB-BDFE-5A0CA8B4AF1C}
+		{6D55EA9F-7C3D-44B0-876C-866F432B5CA1} = {7DD5A7AE-18BB-40D3-8799-91003F53CA85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA23513B-9921-4680-90F6-AC222227DD17}

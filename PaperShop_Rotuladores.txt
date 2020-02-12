@@ -1,3 +1,9 @@
+cd C:\Program Files\MongoDB\Server\4.2\bin
+
+mongod --dbpath C:\Users\SergioVelasco\Desktop\EjemploAPI\MongoCosmos
+
+mongo
+
 use PaperShop
 
 db.createCollection('Rotuladores')

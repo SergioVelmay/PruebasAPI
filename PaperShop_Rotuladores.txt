@@ -1,0 +1,42 @@
+use PaperShop
+
+db.createCollection('Rotuladores')
+
+db.Rotuladores.insertMany(
+    [
+        {
+            'Name':'Stabilo Boss',
+            'Color': 'amarillo',
+            'Grosor':5.4,
+            'Permanente':false,
+            'Nivel':100
+        },
+        {
+            'Name':'Edding 3000',
+            'Color': 'negro',
+            'Grosor':3.6,
+            'Permanente':true,
+            'Nivel':95
+        },
+        {
+            'Name':'Edding 360',
+            'Color': 'rojo',
+            'Grosor':1.2,
+            'Permanente':true,
+            'Nivel':90
+        },
+        {
+            'Name':'Stabilo Boss',
+            'Color': 'verde',
+            'Grosor':7.8,
+            'Permanente':false,
+            'Nivel':10,
+            'Descatalogado':true
+        },
+        {
+            'Name':'Edding 360',
+            'Color': 'azul',
+            'Permanente':true,
+        }
+    ]
+)

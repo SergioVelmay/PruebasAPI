@@ -51,21 +51,23 @@ namespace IdentityClientMVC.Controllers
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-
             var message = await client.GetAsync("https://localhost:44309/api/rotuladores");
 
+            ViewBag.Code = (int)message.StatusCode;
 
-            switch (message.StatusCode)
+            ViewBag.Status = message.StatusCode.ToString();
+
+            if (message.StatusCode == HttpStatusCode.OK)
             {
-                case HttpStatusCode.Unauthorized:
-                    break;
-                case HttpStatusCode.Forbidden:
-                    break;
+                var content = await message.Content.ReadAsStringAsync();
+
+                ViewBag.Json = JArray.Parse(content).ToString();
+            }
+            else
+            {
+                ViewBag.Json = string.Empty;
             }
 
-            var content = await message.Content.ReadAsStringAsync();
-
-            ViewBag.Json = JObject.Parse(content).ToString();
             return View("json");
         }
     }

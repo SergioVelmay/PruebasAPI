@@ -1,8 +1,33 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "json";
 }
 
-<h1>JSON</h1>
+@using Microsoft.AspNetCore.Authentication
+
+<h1>API Response View</h1>
+
+<h3>@ViewBag.Code - @ViewBag.Status</h3>
+
+<p>Vuelta a <a href="http://localhost:5000">Login de Identity Server</a>.</p>
+
+<h2>Claims</h2>
+
+<dl>
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
+
+<h2>Properties</h2>
+
+<dl>
+    @foreach (var prop in (await Context.AuthenticateAsync()).Properties.Items)
+    {
+        <dt>@prop.Key</dt>
+        <dd>@prop.Value</dd>
+    }
+</dl>
 
 <pre>@ViewBag.Json</pre>

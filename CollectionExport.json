@@ -1,0 +1,82 @@
+[
+    {
+        "_id": {
+            "$oid": "5e4272a48e3b306f809a0287"
+        },
+        "Name": "Stabilo Boss",
+        "Color": "amarillo",
+        "Grosor": {
+            "$numberDouble": "5.4"
+        },
+        "Permanente": false,
+        "Nivel": {
+            "$numberInt": "100"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5e4272a48e3b306f809a0288"
+        },
+        "Name": "Edding 3000",
+        "Color": "negro",
+        "Grosor": {
+            "$numberDouble": "3.6"
+        },
+        "Permanente": true,
+        "Nivel": {
+            "$numberInt": "95"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5e4272a48e3b306f809a0289"
+        },
+        "Name": "Edding 360",
+        "Color": "rojo",
+        "Grosor": {
+            "$numberDouble": "1.2"
+        },
+        "Permanente": true,
+        "Nivel": {
+            "$numberInt": "90"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "5e4272a48e3b306f809a028a"
+        },
+        "Name": "Stabilo Boss",
+        "Color": "verde",
+        "Grosor": {
+            "$numberDouble": "7.8"
+        },
+        "Permanente": false,
+        "Nivel": {
+            "$numberInt": "10"
+        },
+        "Descatalogado": true
+    },
+    {
+        "_id": {
+            "$oid": "5e4272a48e3b306f809a028b"
+        },
+        "Name": "Edding 360",
+        "Color": "azul",
+        "Permanente": true
+    },
+    {
+        "_id": {
+            "$oid": "5e45004b2fc7e039cc1e0428"
+        },
+        "Name": "Carioca 1995",
+        "Color": null,
+        "Grosor": {
+            "$numberInt": "0"
+        },
+        "Permanente": false,
+        "Nivel": {
+            "$numberInt": "0"
+        },
+        "Descatalogado": null
+    }
+]

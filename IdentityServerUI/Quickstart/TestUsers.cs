@@ -16,7 +16,6 @@ namespace IdentityServer4.Quickstart.UI
             new TestUser{SubjectId = "818727", Username = "alice", Password = "alice", 
                 Claims = 
                 {
-                    new Claim(JwtClaimTypes.Role, "admin"),
                     new Claim(JwtClaimTypes.Name, "Alice Smith"),
                     new Claim(JwtClaimTypes.GivenName, "Alice"),
                     new Claim(JwtClaimTypes.FamilyName, "Smith"),
@@ -36,7 +35,22 @@ namespace IdentityServer4.Quickstart.UI
                     new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                     new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
                     new Claim(JwtClaimTypes.Address, @"{ 'street_address': 'One Hacker Way', 'locality': 'Heidelberg', 'postal_code': 69118, 'country': 'Germany' }", IdentityServer4.IdentityServerConstants.ClaimValueTypes.Json),
-                    new Claim("location", "somewhere")
+                    new Claim("location", "somewhere"),
+                    new Claim(JwtClaimTypes.Role, "noRol")
+                }
+            },
+            new TestUser{SubjectId = "12345678", Username = "sergio", Password = "123456",
+                Claims =
+                {
+                    new Claim(JwtClaimTypes.Name, "Sergio Velmay"),
+                    new Claim(JwtClaimTypes.GivenName, "Sergio"),
+                    new Claim(JwtClaimTypes.FamilyName, "Velmay"),
+                    new Claim(JwtClaimTypes.Email, "SergioVelmay@gmail.com"),
+                    new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
+                    new Claim(JwtClaimTypes.WebSite, "http://SergioVelmay.com"),
+                    new Claim(JwtClaimTypes.Address, @"{ 'street_address': 'Yelmo Way', 'locality': 'Madrid', 'postal_code': 28906, 'country': 'Spain' }", IdentityServer4.IdentityServerConstants.ClaimValueTypes.Json),
+                    new Claim("location", "Bravent & Co."),
+                    new Claim(JwtClaimTypes.Role, "miRol")
                 }
             }
         };

@@ -28,9 +28,9 @@ namespace IdentityClient
             {
                 Address = discovery.TokenEndpoint,
 
-                ClientId = "sergio",
+                ClientId = "applicationCON",
 
-                ClientSecret = "prueba_123",
+                ClientSecret = "prueba_CON",
 
                 Scope = "rotuladores"
             });

@@ -37,11 +37,15 @@ namespace IdentityClientMVC
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
 
-                    options.ClientId = "bob";
-                    options.ClientSecret = "bob";
+                    options.ClientId = "applicationMVC";
+                    options.ClientSecret = "prueba_MVC";
                     options.ResponseType = "code";
 
                     options.SaveTokens = true;
+
+                    options.Scope.Add("rotuladores");
+
+                    options.Scope.Add("offline_access");
                 });
 
             services.AddControllersWithViews();

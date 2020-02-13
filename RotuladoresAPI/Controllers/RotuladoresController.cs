@@ -20,6 +20,7 @@ namespace EjemploAPI.Controllers
 
         // GET: api/Rotuladores
         [HttpGet]
+        [Authorize(Roles = "miRol")]
         public ActionResult<IEnumerable<RotuladorDTO>> Read()
         {
            return _rotuladorService.Get();

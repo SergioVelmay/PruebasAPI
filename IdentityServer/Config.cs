@@ -22,7 +22,7 @@ namespace IdentityServer
             {
                 new Client
                 {
-                    ClientId = "sergio",
+                    ClientId = "applicationCON",
 
                     // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -30,7 +30,7 @@ namespace IdentityServer
                     // secret for authentication
                     ClientSecrets =
                     {
-                        new Secret("prueba_123".Sha256())
+                        new Secret("prueba_CON".Sha256())
                     },
 
                     // scopes that client has access to

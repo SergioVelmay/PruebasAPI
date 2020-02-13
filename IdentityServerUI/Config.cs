@@ -20,7 +20,7 @@ namespace IdentityServerUI
         public static IEnumerable<ApiResource> Apis =>
             new ApiResource[]
             {
-                new ApiResource("rotuladores", "API Rotuladores")
+                new ApiResource("rotuladores", "API Rotuladores", new List<string> { "role" })
             };
 
 
@@ -30,23 +30,34 @@ namespace IdentityServerUI
                 // client credentials flow client
                 new Client
                 {
-                    ClientId = "sergio",
-                    ClientName = "Sergio Credentials Client",
+                    ClientId = "applicationCON",
 
+                    ClientName = "Cliente: Aplicación de Consola",
+
+                    // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    ClientSecrets = { new Secret("prueba_123".Sha256()) },
 
+                    // secret for authentication
+                    ClientSecrets =
+                    {
+                        new Secret("prueba_CON".Sha256())
+                    },
+
+                    // scopes that client has access to
                     AllowedScopes = { "rotuladores" }
                 },
 
                 // MVC client using code flow + pkce
                 new Client
                 {
-                    ClientId = "sergioMVC",
-                    ClientName = "Sergio MVC Client",
+                    ClientId = "applicationMVC",
+
+                    ClientName = "Cliente: Aplicación Web MVC",
 
                     AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+
                     RequirePkce = true,
+
                     ClientSecrets = { new Secret("prueba_MVC".Sha256()) },
 
                     RedirectUris = { "http://localhost:5002/signin-oidc" },
@@ -54,14 +65,15 @@ namespace IdentityServerUI
                     PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
+
                     AllowedScopes = { "openid", "profile", "rotuladores" }
                 },
 
                 // SPA client using code flow + pkce
                 new Client
                 {
-                    ClientId = "sergioSPA",
-                    ClientName = "Sergio SPA Client",
+                    ClientId = "SPA",
+                    ClientName = "Cliente: SPA",
                     ClientUri = "http://identityserver.io",
 
                     AllowedGrantTypes = GrantTypes.Code,

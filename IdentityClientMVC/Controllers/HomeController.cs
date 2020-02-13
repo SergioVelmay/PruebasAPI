@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using IdentityClientMVC.Models;
+using Microsoft.AspNetCore.Authentication;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace IdentityClientMVC.Controllers
 {
@@ -37,6 +42,31 @@ namespace IdentityClientMVC.Controllers
         public IActionResult Logout()
         {
             return SignOut("Cookies", "oidc");
+        }
+
+        public async Task<IActionResult> CallApi()
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+
+            var message = await client.GetAsync("https://localhost:44309/api/rotuladores");
+
+
+            switch (message.StatusCode)
+            {
+                case HttpStatusCode.Unauthorized:
+                    break;
+                case HttpStatusCode.Forbidden:
+                    break;
+            }
+
+            var content = await message.Content.ReadAsStringAsync();
+
+            ViewBag.Json = JObject.Parse(content).ToString();
+            return View("json");
         }
     }
 }
